@@ -1,0 +1,23 @@
+# 构建产物（APK 由 zipalign/apksigner 生成在 build/ 里）
+build/
+gen/
+*.idsig
+*.class
+classes.jar
+
+# 签名密钥：不入库，首次构建会自动生成调试密钥
+debug.keystore
+
+# 调试期留下的设备数据（含包名等隐私信息，勿提交）
+*.db
+*.csv
+bbs*.txt
+szdump.txt
+szstart.sh
+szapk/
+szbase.apk
+u*.xml
+
+# 临时截图：只保留 docs/screenshots/ 下的成品
+*.png
+!docs/screenshots/*.png

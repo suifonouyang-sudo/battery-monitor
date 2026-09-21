@@ -1,0 +1,9 @@
+* text=auto
+
+# Windows 批处理必须是 CRLF，否则可能执行异常
+*.bat text eol=crlf
+
+*.apk binary
+*.png binary
+*.aar binary
+*.jar binary

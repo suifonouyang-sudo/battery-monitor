@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnRefreshCharts"
+            android:text="刷新"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <Button android:id="@+id/btnRangeAll" android:text="全部" android:textSize="12sp"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnRange24h" android:text="24小时" android:textSize="12sp"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnRange6h" android:text="6小时" android:textSize="12sp"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnRange1h" android:text="1小时" android:textSize="12sp"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnZoomOut" android:text="－" android:textSize="12sp"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnZoomIn" android:text="＋" android:textSize="12sp"
+                android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView android:text="电量曲线（%）" android:textStyle="bold" android:layout_marginTop="8dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+        <TextView android:text="单指拖动平移 · 双指捏合缩放时间线 · 双击复位（上下两图同步范围）"
+            android:textSize="12sp" android:textColor="#9AA3B2"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+        <com.batterymonitor.app.BatteryChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView android:text="实时容量（mAh）" android:textStyle="bold" android:layout_marginTop="12dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+        <com.batterymonitor.app.BatteryChart
+            android:id="@+id/chartCap"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+</ScrollView>

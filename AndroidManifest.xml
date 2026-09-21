@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.batterymonitor.app"
+    android:versionCode="38"
+    android:versionName="1.37">
+
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="34" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 应用耗电排行：Android 11+ 包可见性过滤会让 getPackagesForUid 看不见第三方应用，
+         需要此权限才能把 uid 映射成应用名 -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
+    <!-- Android 11+ 包可见性：允许本应用发现 Shizuku 管理器（否则拿不到 binder，
+         Shizuku 的授权列表里也不会出现本应用） -->
+    <queries>
+        <package android:name="moe.shizuku.privileged.api" />
+    </queries>
+
+    <!-- Shizuku API 标记权限：Shizuku server 通过它扫描"使用 Shizuku 的应用"，
+         缺少它 server 不会向本应用推送 binder（Gradle 集成时由 provider.aar 自动合并） -->
+    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
+
+    <application
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault.Light"
+        android:allowBackup="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AppPowerActivity"
+            android:exported="false"
+            android:label="应用耗电排行" />
+
+        <activity
+            android:name=".ChartActivity"
+            android:exported="false"
+            android:label="电量/容量曲线" />
+
+        <activity
+            android:name=".CycleActivity"
+            android:exported="false"
+            android:label="充放电循环记录" />
+
+        <service
+            android:name=".SamplingService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Shizuku：用于获取 root / adb 身份，读取电池容量 sysfs 节点 -->
+        <provider
+            android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="com.batterymonitor.app.shizuku"
+            android:multiprocess="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    </application>
+</manifest>

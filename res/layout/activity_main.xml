@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:text="状态: -"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvSource"
+            android:text="容量数据来源: -"
+            android:textSize="13sp"
+            android:textColor="#FF6F00"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.batterymonitor.app.FlowLayout
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView android:id="@+id/tvLevel"   style="@style/Metric" />
+            <TextView android:id="@+id/tvHealth"  style="@style/Metric" />
+            <TextView android:id="@+id/tvFull"    style="@style/Metric" />
+            <TextView android:id="@+id/tvEstimate" style="@style/Metric" />
+            <TextView android:id="@+id/tvDesign"  style="@style/Metric" />
+            <TextView android:id="@+id/tvEta"     style="@style/Metric" />
+            <TextView android:id="@+id/tvRate"    style="@style/Metric" />
+            <TextView android:id="@+id/tvProtocol" style="@style/Metric" />
+            <TextView android:id="@+id/tvTemp"    style="@style/Metric" />
+            <TextView android:id="@+id/tvVoltage" style="@style/Metric" />
+            <TextView android:id="@+id/tvLastFull" style="@style/Metric" />
+            <TextView android:id="@+id/tvCycles"  style="@style/Metric" />
+            <TextView android:id="@+id/tvRemainCapacity" style="@style/Metric" />
+            <TextView android:id="@+id/tvDevicePower" style="@style/Metric" />
+            <TextView android:id="@+id/tvAvgPower" style="@style/Metric" />
+            <TextView android:id="@+id/tvUsageTime" style="@style/Metric" />
+            <TextView android:id="@+id/tvUseTime" style="@style/Metric" />
+        </com.batterymonitor.app.FlowLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button android:id="@+id/btnRefresh" android:text="刷新" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnExport"  android:text="导出CSV" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnShizuku" android:text="Shizuku授权" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCharts"
+            android:text="电量/容量曲线"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnAppPower"
+            android:text="应用耗电排行"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnCycles"
+            android:text="充放电循环记录"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:text="出厂设计容量"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/etDesign"
+                android:hint="如 5000"
+                android:inputType="number"
+                android:textSize="14sp"
+                android:layout_marginLeft="8dp"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="mAh"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnSaveDesign"
+                android:text="保存"
+                android:layout_marginLeft="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
