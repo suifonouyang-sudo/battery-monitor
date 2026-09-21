@@ -70,3 +70,12 @@ SQLite 数据库 `battery.db`：
 ## License
 
 MIT
+
+
+---
+
+<!-- coderabbit-smoke-test -->
+## CodeRabbit 接入验证（临时）
+
+本行由自动化流程于 2026-09-21 加入，仅用于触发一次 CodeRabbit 代码审查，以验证 GitHub App 接入是否真正生效。
+验证完成后，本分支与对应 PR 会被关闭并删除，README 会还原。
